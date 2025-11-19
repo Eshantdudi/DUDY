@@ -1,172 +1,315 @@
-/* App.css */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
+/* ================================
+   Corporate Dark – Premium UI
+   Clean • Business • Zero Glow
+=================================== */
 
-/* --- Container --- */
-.app-container {
-  min-height: 100vh;
-  background-image: url("/img/pipe.png"); /* public/img/bg.jpg */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 20px;
-  gap: 20px;
-  font-family: 'Poppins', sans-serif;
-  text-align: center;
+:root {
+  --bg: #0f1115;
+  --card: #16181d;
+  --text: #e5e7eb;
+  --muted: #9aa0a8;
+  --accent: #ff7a1a;
+  --border: #24272e;
+  --radius: 14px;
 }
 
-/* --- Header --- */
-header {
-  width: 100%;
-  max-width: 600px;
-  background: linear-gradient(135deg, #ffffff, #ffffff);
-  padding: 24px;
-  border-radius: 28px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center; /* h1 ko center karne ke liye */
-  position: relative;
-}
-
-header h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #ec6c03;
+body {
   margin: 0;
-  line-height: 1; /* text height compact ho jayega */
+  background: var(--bg);
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text);
+  padding: 24px;
 }
 
-header img {
-  position: absolute;
-  left: 20px;
-  top: 50%;              /* beech me lana */
-  transform: translateY(-50%);  /* perfectly center */
-  width: 60px;
-  height: 60px;
-transition: all 0.3s ease-in-out; /* smooth animation */
-}
-header img:hover {
-  transform: translateY(-50%) scale(1.1); /* thoda zoom */
-  box-shadow: 0 6px 15px rgba(221, 139, 16, 0.6); /* blue glow */
-  cursor: pointer; /* cursor pointer ban jayega */
-}
-
-header p {
-  font-size: 1rem;
-  color: #f16f05;
-}
-
-/* --- Card --- */
-.card {
-  width: 100%;
-  max-width: 600px;
-  background: #fff;
-  border-radius: 24px;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.2);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Container */
+.neo-app {
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+/* ========================
+   CARD – Corporate Design
+=========================*/
+.card {
+  display: flex;
+  gap: 22px;
+  background: var(--card);
+  padding: 22px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+  transition: 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 45px rgba(0,0,0,0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
 }
 
 .card-content {
-  padding: 24px;
+  flex: 1;
 }
 
 .card h2 {
+  margin: 0 0 12px 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ========================
+   PRODUCT SECTION
+=========================*/
+.product-card {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.product-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.product-list {
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+}
+
+/* Image block */
+.product-image-wrapper {
+  width: 320px;
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.product-image {
+  width: 100%;
+  display: block;
+}
+
+/* ========================
+   AUTO ALTERNATE (About / Application)
+=========================*/
+.card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* ========================
+   RESPONSIVE
+=========================*/
+@media (max-width: 900px) {
+  .card,
+  .product-card,
+  .card:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .product-image-wrapper {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+}
+
+/* ========================
+   HEADER – Corporate Style
+=========================*/
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 28px;
+  box-shadow: 0 4px 22px rgba(0,0,0,0.35);
+}
+
+.header-logo {
+  width: 68px;
+  height: 68px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.header-title {
   font-size: 1.4rem;
   font-weight: 700;
+  color: var(--accent);
+}
+
+.header-sub {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ========================
+   WhatsApp Button
+=========================*/
+.whatsapp-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 16px;
-  color: #1e3a8a;
+  color: #04240e;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+/* ----- GLOBAL CARD SPACING (Professional Corporate UI) ----- */
+
+/* Card box spacing */
+.card {
+  margin: 32px 0;         /* 👉 Each card ke beech perfect clean space */
+  padding: 28px 24px;     /* 👉 Andar ka space premium level */
 }
 
-.card ul {
-  list-style: disc inside;
-  color: #374151;
-  font-size: 1rem;
-  line-height: 1.7;
-  text-align: left;
-  margin: 0 auto;
+/* Card heading spacing */
+.card h2 {
+  margin-bottom: 18px;     /* 👉 Title ke neeche clean gap */
+  font-size: 1.5rem;
 }
 
-.card ul li {
-  margin-bottom: 8px;
-  padding-left: 4px;
-  transition: transform 0.3s ease, color 0.3s ease;
+/* List + paragraphs spacing */
+.product-list li,
+.application-list li,
+.card-content p {
+  margin: 10px 0;          /* 👉 Lines ke beech readability gap */
 }
 
-.card ul li:hover {
-  transform: translateX(4px);
-  color: #1e40af;
+/* CRM Component spacing fix */
+.card-content > *:not(:last-child) {
+  margin-bottom: 14px;     /* 👉 CRM fields nicely spaced */
 }
 
-/* --- Contact Section --- */
-.contact p {
+/* Top + Bottom sections spacing fix */
+.product-card,
+.application-card,
+.about-card,
+.crm-card,
+.contact-card {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+/* If you want extra breathing area below header */
+.header {
+  margin-bottom: 36px;     
+}
+
+/* Ultra-Professional Corporate Dark Footer */
+
+.footer-dark {
+  width: 100%;
+  background: #0d0f12;
+  border-top: 1px solid #23272f;
+  padding: 20px 0;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 10px;
-  font-size: 1rem;
-  color: #374151;
-  flex-wrap: wrap;
-  margin-bottom: 6px;
 }
 
-.contact .gst {
-  font-size: 0.85rem;
-  color: #6b7280;
-  margin-top: 6px;
+.footer-content {
+  text-align: center;
 }
 
-/* --- WhatsApp Button --- */
-.whatsapp-btn {
-  background: linear-gradient(135deg, #16a34a, #22c55e);
+.footer-text {
+  color: #e4e7ec;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+}
+
+.footer-subtext {
+  color: #9aa0a6;
+  font-size: 0.78rem;
+  margin-top: 3px;
+  letter-spacing: 0.5px;
+}
+
+
+.map-wrapper {
+  width: 275px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+}
+
+.india-map {
+  width: 100%;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.4));
+  transition: 0.3s ease;
+}
+
+/* Haryana pin location */
+.pin {
+  position: absolute;
+  top: 42%;      /* Adjust accurate Haryana coordinate */
+  left: 57%;
+  width: 12px;
+  height: 12px;
+  background: #ff5722;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff5722;
+  cursor: pointer;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  top: 35%;
+  left: 60%;
+  transform: translateX(-50%);
+  background: rgba(20, 20, 20, 0.85);
+  padding: 6px 12px;
   color: #fff;
-  padding: 16px 36px;
-  border-radius: 28px;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  transition: all 0.3s ease;
-  font-size: 1.1rem;
-  display: inline-block;
-  margin-top: 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease;
+  border: 1px solid rgba(255,255,255,0.15);
 }
 
-.whatsapp-btn:hover {
-  background: linear-gradient(135deg, #f55e06, #e77d04);
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+/* Hover effect */
+.map-container:hover .tooltip {
+  opacity: 1;
 }
 
-/* --- Icons --- */
-.icon {
-  transition: transform 0.3s ease, color 0.3s ease;
+.map-container:hover .india-map {
+  opacity: 1;
+  scale: 1.02;
 }
-
-.icon:hover {
-  transform: scale(1.2);
-  color: #16a34a;
-}
-
-/* --- Responsive --- */
-@media (max-width: 480px) {
-  header h1 { font-size: 1.6rem; }
-  header p { font-size: 0.9rem; }
-  .card h2 { font-size: 1.2rem; }
-  .card ul li, .contact p { font-size: 0.9rem; }
-  .whatsapp-btn { padding: 14px 28px; font-size: 1rem; }
-}
+  

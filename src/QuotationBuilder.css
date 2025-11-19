@@ -1,0 +1,69 @@
+.quotation-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.quotation-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.quotation-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.quotation-table th,
+.quotation-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.quotation-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.quotation-table input {
+  width: 80px;
+  padding: 5px;
+  text-align: right;
+}
+
+.summary {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.summary p,
+.summary h3 {
+  margin: 5px 0;
+}
+
+.buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 15px;
+}
+
+.buttons button:hover {
+  background: #0056b3;
+}
