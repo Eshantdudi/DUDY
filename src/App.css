@@ -1,315 +1,344 @@
-/* ================================
-   Corporate Dark – Premium UI
-   Clean • Business • Zero Glow
-=================================== */
-
-:root {
-  --bg: #0f1115;
-  --card: #16181d;
-  --text: #e5e7eb;
-  --muted: #9aa0a8;
-  --accent: #ff7a1a;
-  --border: #24272e;
-  --radius: 14px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  background: var(--bg);
-  font-family: "Inter", system-ui, sans-serif;
-  color: var(--text);
-  padding: 24px;
+  background: #0c0c0c;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
 }
 
-/* Container */
 .neo-app {
+  background: #0c0c0c;
+  min-height: 100vh;
+}
+
+.neo-main {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* ========================
-   CARD – Corporate Design
-=========================*/
-.card {
+/* Section divider */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ff6b1a20, transparent);
+}
+
+/* ── CONTACT ── */
+.contact-section {
+  background: #0c0c0c;       /* ✅ same as body */
+  padding: 80px 60px;
   display: flex;
-  gap: 22px;
-  background: var(--card);
-  padding: 22px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-  transition: 0.3s ease;
+  align-items: flex-start;
+  gap: 60px;
 }
 
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
-}
-
-.card-content {
+.contact-left {
   flex: 1;
 }
 
-.card h2 {
-  margin: 0 0 12px 0;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--accent);
-}
-
-.card p {
-  color: var(--muted);
-  line-height: 1.65;
-}
-
-/* ========================
-   PRODUCT SECTION
-=========================*/
-.product-card {
-  display: flex;
-  gap: 22px;
+.contact-badge {
+  display: inline-flex;
   align-items: center;
+  gap: 8px;
+  background: #ff6b1a15;
+  border: 1px solid #ff6b1a40;
+  border-radius: 20px;
+  padding: 6px 14px;
+  margin-bottom: 20px;
 }
 
-.product-title {
+.contact-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff6b1a;
+}
+
+.contact-badge-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ff6b1a;
+  text-transform: uppercase;
+}
+
+.contact-title {
+  font-size: 42px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 3px;
+  line-height: 1.15;
+  margin: 0 0 6px;
+  font-family: Georgia, serif;
+}
+
+.contact-title span {
+  color: #ff6b1a;
+}
+
+.contact-tagline {
+  font-size: 12px;
+  color: #ff6b1a80;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.contact-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b1a, #ff9a4a);
+  border-radius: 2px;
+  margin: 18px 0 28px;
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #161616;
+  border: 1px solid #ffffff12;
+  border-radius: 14px;
+  padding: 14px 18px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.contact-info-item:hover {
+  border-color: #ff6b1a50;
+  background: #1a1a1a;
+}
+
+.contact-info-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #ff6b1a15;
+  border: 1px solid #ff6b1a30;
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 1.4rem;
-}
-
-.product-list {
-  margin-top: 10px;
-  color: var(--muted);
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-.icon {
-  width: 22px;
-  height: 22px;
-  color: var(--accent);
-}
-
-/* Image block */
-.product-image-wrapper {
-  width: 320px;
+  justify-content: center;
   flex-shrink: 0;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--border);
 }
 
-.product-image {
+.contact-info-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #ff6b1a80;
+  text-transform: uppercase;
+  margin: 0 0 3px;
+}
+
+.contact-info-value {
+  font-size: 13px;
+  color: #ffffffcc;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.contact-gst {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #161616;
+  border: 1px solid #ffffff12;
+  border-radius: 10px;
+  padding: 8px 14px;
+}
+
+.contact-gst-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #ffffff40;
+  text-transform: uppercase;
+}
+
+.contact-gst-value {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff80;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+/* Map */
+.contact-right {
+  width: 420px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.contact-map-frame {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 107, 26, 0.15);
+  background: #0c0c0c;       /* ✅ same as body */
   width: 100%;
+  height: 460px;
+  position: relative;
+}
+
+.contact-map-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
   display: block;
 }
 
-/* ========================
-   AUTO ALTERNATE (About / Application)
-=========================*/
-.card:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-/* ========================
-   RESPONSIVE
-=========================*/
-@media (max-width: 900px) {
-  .card,
-  .product-card,
-  .card:nth-child(even) {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .product-image-wrapper {
-    width: 100%;
-    max-width: 380px;
-    margin: 0 auto;
-  }
-}
-
-/* ========================
-   HEADER – Corporate Style
-=========================*/
-.header {
+.contact-pin {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  z-index: 2;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 14px;
-  padding: 16px 20px;
-  background: var(--card);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  margin-bottom: 28px;
-  box-shadow: 0 4px 22px rgba(0,0,0,0.35);
 }
 
-.header-logo {
-  width: 68px;
-  height: 68px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--border);
+.contact-pin-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ff6b1a;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 4px #ff6b1a40;
+  animation: pin-pulse 2s ease-in-out infinite;
 }
 
-.header-title {
-  font-size: 1.4rem;
+.contact-pin-line {
+  width: 2px;
+  height: 20px;
+  background: #ff6b1a;
+}
+
+.contact-pin-tooltip {
+  position: absolute;
+  top: 10%;
+  left: 52%;
+  background: #0c0c0c;       /* ✅ same as body */
+  border: 1px solid #ff6b1a40;
+  border-radius: 8px;
+  padding: 6px 10px;
+  white-space: nowrap;
+  z-index: 3;
+}
+
+.contact-pin-tooltip p {
+  font-size: 11px;
   font-weight: 700;
-  color: var(--accent);
+  color: #ff6b1a;
+  letter-spacing: 1px;
+  margin: 0;
 }
 
-.header-sub {
-  font-size: 13px;
-  color: var(--muted);
+.contact-pin-tooltip span {
+  font-size: 10px;
+  color: #ffffff50;
+  display: block;
+  margin-top: 2px;
 }
 
-/* ========================
-   WhatsApp Button
-=========================*/
+.contact-accent-tl {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: 56px;
+  height: 56px;
+  border-top: 3px solid #ff6b1a;
+  border-left: 3px solid #ff6b1a;
+  border-radius: 4px 0 0 0;
+  z-index: 1;
+}
+
+.contact-accent-br {
+  position: absolute;
+  bottom: -12px;
+  right: -12px;
+  width: 56px;
+  height: 56px;
+  border-bottom: 3px solid #ff6b1a;
+  border-right: 3px solid #ff6b1a;
+  border-radius: 0 0 4px 0;
+  z-index: 1;
+}
+
+@keyframes pin-pulse {
+  0%, 100% { box-shadow: 0 0 0 4px #ff6b1a40; }
+  50%       { box-shadow: 0 0 0 10px #ff6b1a10; }
+}
+
+/* WhatsApp float */
 .whatsapp-float {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
-  width: 58px;
-  height: 58px;
+  bottom: 28px;
+  right: 28px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
   border-radius: 50%;
-  background: #25d366;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #04240e;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
-}
-/* ----- GLOBAL CARD SPACING (Professional Corporate UI) ----- */
-
-/* Card box spacing */
-.card {
-  margin: 32px 0;         /* 👉 Each card ke beech perfect clean space */
-  padding: 28px 24px;     /* 👉 Andar ka space premium level */
+  color: white;
+  font-size: 28px;
+  text-decoration: none;
+  box-shadow: 0 4px 24px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* Card heading spacing */
-.card h2 {
-  margin-bottom: 18px;     /* 👉 Title ke neeche clean gap */
-  font-size: 1.5rem;
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5);
 }
 
-/* List + paragraphs spacing */
-.product-list li,
-.application-list li,
-.card-content p {
-  margin: 10px 0;          /* 👉 Lines ke beech readability gap */
-}
-
-/* CRM Component spacing fix */
-.card-content > *:not(:last-child) {
-  margin-bottom: 14px;     /* 👉 CRM fields nicely spaced */
-}
-
-/* Top + Bottom sections spacing fix */
-.product-card,
-.application-card,
-.about-card,
-.crm-card,
-.contact-card {
-  margin-top: 32px;
-  margin-bottom: 32px;
-}
-
-/* If you want extra breathing area below header */
-.header {
-  margin-bottom: 36px;     
-}
-
-/* Ultra-Professional Corporate Dark Footer */
-
-.footer-dark {
-  width: 100%;
-  background: #0d0f12;
-  border-top: 1px solid #23272f;
-  padding: 20px 0;
-  display: flex;
-  justify-content: center;
-}
-
-.footer-content {
-  text-align: center;
-}
-
-.footer-text {
-  color: #e4e7ec;
-  font-size: 0.95rem;
-  letter-spacing: 0.3px;
-  font-weight: 500;
-}
-
-.footer-subtext {
-  color: #9aa0a6;
-  font-size: 0.78rem;
-  margin-top: 3px;
-  letter-spacing: 0.5px;
-}
-
-
-.map-wrapper {
-  width: 275px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.map-container {
-  position: relative;
-  width: 100%;
-}
-
-.india-map {
-  width: 100%;
-  opacity: 0.85;
-  filter: drop-shadow(0 0 10px rgba(0,0,0,0.4));
-  transition: 0.3s ease;
-}
-
-/* Haryana pin location */
-.pin {
+.whatsapp-pulse {
   position: absolute;
-  top: 42%;      /* Adjust accurate Haryana coordinate */
-  left: 57%;
-  width: 12px;
-  height: 12px;
-  background: #ff5722;
+  inset: 0;
   border-radius: 50%;
-  box-shadow: 0 0 10px #ff5722;
-  cursor: pointer;
+  background: #25D366;
+  animation: wa-pulse 2s ease-out infinite;
+  z-index: -1;
 }
 
-/* Tooltip */
-.tooltip {
-  position: absolute;
-  top: 35%;
-  left: 60%;
-  transform: translateX(-50%);
-  background: rgba(20, 20, 20, 0.85);
-  padding: 6px 12px;
-  color: #fff;
-  font-size: 13px;
-  border-radius: 6px;
+@keyframes wa-pulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0;   }
+}
+
+/* Scroll reveal */
+.reveal {
   opacity: 0;
-  pointer-events: none;
-  transition: 0.25s ease;
-  border: 1px solid rgba(255,255,255,0.15);
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* Hover effect */
-.map-container:hover .tooltip {
+.reveal.show {
   opacity: 1;
+  transform: translateY(0);
 }
 
-.map-container:hover .india-map {
-  opacity: 1;
-  scale: 1.02;
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+    padding: 48px 24px;
+  }
+  .contact-right {
+    width: 100%;
+  }
 }
-  
