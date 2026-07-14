@@ -51,7 +51,7 @@ export default function About() {
         <div className="about-accent-br" />
 
         <div className="about-img-frame">
-          <img src="/img/pipe.png" alt="Ductile Iron Pipes" />
+          <img src="/img/RO.png" alt="Ductile Iron Pipes" />
         </div>
 
         <div className="about-floating-tag">

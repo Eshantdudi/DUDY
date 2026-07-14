@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Product.css';
 
 const products = [
@@ -6,63 +6,40 @@ const products = [
     title: "DI Pipes",
     tag: "K-7, K-9 · 80mm–1200mm",
     desc: "As per IS:8329. High-strength ductile iron pipes for water supply, pressure mains, and long-distance pipeline networks.",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <rect x="2" y="6" width="14" height="6" rx="3" stroke="#ff6b1a" strokeWidth="1.4"/>
-        <circle cx="4" cy="9" r="1.5" stroke="#ff6b1a" strokeWidth="1.2"/>
-        <circle cx="14" cy="9" r="1.5" stroke="#ff6b1a" strokeWidth="1.2"/>
-        <path d="M5.5 9h7" stroke="#ff6b1a" strokeWidth="1.4" strokeLinecap="round"/>
-      </svg>
-    ),
+    img: "/img/pipe.png",
   },
   {
     title: "DI Fittings",
     tag: "Bends, Tees, Reducers",
     desc: "Durable fittings ensuring leak-proof joints and direction changes in DI pipeline systems.",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <path d="M3 9h5v5" stroke="#ff6b1a" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M8 9l5-5" stroke="#ff6b1a" strokeWidth="1.4" strokeLinecap="round"/>
-        <circle cx="8" cy="9" r="2" stroke="#ff6b1a" strokeWidth="1.2"/>
-      </svg>
-    ),
+    img: "/img/fittings.png",
   },
   {
     title: "DI Double Flange Pipes & Fittings",
     tag: "IS:8329 · IS:9523",
     desc: "Heavy-duty flanged pipes ideal for pumping stations, overhead tanks, valve chambers, and high-pressure installations.",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <rect x="1" y="7" width="16" height="4" rx="2" stroke="#ff6b1a" strokeWidth="1.4"/>
-        <rect x="3" y="5" width="2" height="8" rx="1" stroke="#ff6b1a" strokeWidth="1.2"/>
-        <rect x="13" y="5" width="2" height="8" rx="1" stroke="#ff6b1a" strokeWidth="1.2"/>
-      </svg>
-    ),
+    img: "/img/DFpipe.png",
   },
   {
     title: "Valves",
     tag: "Gate · Sluice · Butterfly",
     desc: "Reliable industrial valves for flow control, isolation, and regulation in water supply and infrastructure projects.",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <circle cx="9" cy="9" r="5" stroke="#ff6b1a" strokeWidth="1.4"/>
-        <path d="M9 4v10M4 9h10" stroke="#ff6b1a" strokeWidth="1.3" strokeLinecap="round"/>
-      </svg>
-    ),
+    img: "/img/Valves.png",
   },
   {
     title: "GI & MS Pipes · HDPE Pipes · TMT Bars",
     tag: "Multi-product",
     desc: "Complete range of structural and fluid-carrying products for diverse infrastructure and construction requirements.",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <path d="M2 6h14M2 9h14M2 12h14" stroke="#ff6b1a" strokeWidth="1.4" strokeLinecap="round"/>
-      </svg>
-    ),
+    img: "/img/GI.png",
   },
 ];
 
 export default function Product() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
+
+  const activeProduct = products[activeIndex];
+
   return (
     <section className="product-section">
 
@@ -82,9 +59,19 @@ export default function Product() {
         <div className="product-divider" />
 
         <ul className="product-list">
-          {products.map((p) => (
-            <li key={p.title} className="product-item">
-              <div className="product-item-icon">{p.icon}</div>
+          {products.map((p, index) => (
+            <li
+              key={p.title}
+              className={`product-item ${activeIndex === index ? 'product-item-active' : ''}`}
+              onMouseEnter={() => {
+                setActiveIndex(index);
+                setIsHovering(true);
+              }}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              <div className="product-item-number">
+                {String(index + 1).padStart(2, '0')}
+              </div>
               <div className="product-item-body">
                 <p className="product-item-title">
                   {p.title}
@@ -92,6 +79,7 @@ export default function Product() {
                 </p>
                 <p className="product-item-desc">{p.desc}</p>
               </div>
+              <div className="product-item-arrow">→</div>
             </li>
           ))}
         </ul>
@@ -100,11 +88,21 @@ export default function Product() {
 
       {/* Right */}
       <div className="product-right">
-        <div className="product-accent-tl" />
-        <div className="product-accent-br" />
-
         <div className="product-img-frame">
-          <img src="/img/RO.png" alt="DI Pipes and Fittings" />
+          <img
+            key={activeProduct.img}
+            src={activeProduct.img}
+            alt={activeProduct.title}
+            className={`product-img ${isHovering ? 'product-img-zoom' : ''}`}
+          />
+
+          <div className="product-frame-border" />
+
+          <div className={`product-hover-overlay ${isHovering ? 'product-hover-overlay-visible' : ''}`}>
+            <p className="product-hover-tag">{activeProduct.tag}</p>
+            <h3>{activeProduct.title}</h3>
+            <p className="product-hover-desc">{activeProduct.desc}</p>
+          </div>
         </div>
 
         <div className="product-floating-tag">
